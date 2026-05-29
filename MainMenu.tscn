@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://ds82y0yx4sn0a"]
+
+[ext_resource type="Script" uid="uid://eu0tm4i1pmgy" path="res://h_box_container.gd" id="1_qie43"]
+[ext_resource type="Texture2D" uid="uid://brvjnt245x5d6" path="res://assets/main menu/Sun.svg" id="2_3fnrj"]
+[ext_resource type="Texture2D" uid="uid://desfdn0ojwqtb" path="res://assets/main menu/Group 1.png" id="2_eiy7p"]
+[ext_resource type="Texture2D" uid="uid://dp3vup62ves23" path="res://assets/main menu/Info.png" id="3_cqjrg"]
+[ext_resource type="Texture2D" uid="uid://c7of6qiihm22u" path="res://assets/main menu/SunPress.svg" id="3_m04lp"]
+[ext_resource type="Texture2D" uid="uid://peyaxtl76o73" path="res://assets/main menu/SunHover.svg" id="4_1thib"]
+[ext_resource type="Texture2D" uid="uid://elqg7riona4g" path="res://assets/main menu/InfoHover.png" id="4_e2xy7"]
+[ext_resource type="Texture2D" uid="uid://rdtgpsjc8s4i" path="res://assets/main menu/InfoPress.png" id="4_fimr5"]
+[ext_resource type="Texture2D" uid="uid://v2vv74t68drq" path="res://assets/main menu/InfoModal.svg" id="4_iwfq2"]
+[ext_resource type="Texture2D" uid="uid://d1ndovayh2if3" path="res://assets/main menu/CrossPress.svg" id="5_7r1g0"]
+[ext_resource type="Texture2D" uid="uid://deywt7bmhb0hq" path="res://assets/main menu/CrossHover.svg" id="5_iwfq2"]
+[ext_resource type="Texture2D" uid="uid://r6x0ajaja2qm" path="res://assets/main menu/Cross.svg" id="6_7r1g0"]
+[ext_resource type="Texture2D" uid="uid://bno81uq8ocl53" path="res://assets/main menu/Play.png" id="6_31qfy"]
+[ext_resource type="Texture2D" uid="uid://b0ecfma33b2ay" path="res://assets/main menu/PlayPress.png" id="7_qie43"]
+[ext_resource type="Texture2D" uid="uid://brrl8iwuevp5p" path="res://assets/main menu/PlayHover.png" id="8_61cf8"]
+[ext_resource type="Script" uid="uid://dwest1dsr73m3" path="res://info_modal.gd" id="11_61cf8"]
+
+[node name="Node2D" type="Node2D" unique_id=614830133]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1838958169]
+z_index = -999
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.05882353, 0.07450981, 0.05882353, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=428584200]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=645140003]
+layout_mode = 2
+script = ExtResource("1_qie43")
+
+[node name="LightMode" type="TextureButton" parent="MarginContainer/HBoxContainer" unique_id=1415749515]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_3fnrj")
+texture_pressed = ExtResource("3_m04lp")
+texture_hover = ExtResource("4_1thib")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=606977450]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Note Around" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=707703595]
+layout_mode = 2
+texture = ExtResource("2_eiy7p")
+stretch_mode = 4
+
+[node name="Info" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=1975266803]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_cqjrg")
+texture_pressed = ExtResource("4_fimr5")
+texture_hover = ExtResource("4_e2xy7")
+
+[node name="Play" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=613077845]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("6_31qfy")
+texture_pressed = ExtResource("7_qie43")
+texture_hover = ExtResource("8_61cf8")
+
+[node name="InfoModal" type="TextureRect" parent="MarginContainer" unique_id=83219887]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource("4_iwfq2")
+stretch_mode = 2
+script = ExtResource("11_61cf8")
+
+[node name="Close" type="TextureButton" parent="MarginContainer/InfoModal" unique_id=667538069]
+layout_mode = 0
+offset_left = 1074.0
+offset_top = 27.0
+offset_right = 1114.0
+offset_bottom = 67.0
+texture_normal = ExtResource("6_7r1g0")
+texture_pressed = ExtResource("5_7r1g0")
+texture_hover = ExtResource("5_iwfq2")
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/LightMode" to="MarginContainer/HBoxContainer" method="_on_night_mode_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Info" to="MarginContainer/InfoModal" method="_on_info_pressed"]
+[connection signal="pressed" from="MarginContainer/InfoModal/Close" to="MarginContainer/InfoModal" method="_on_close_pressed"]

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://co16ludyxodcp"]
+
+[ext_resource type="Texture2D" uid="uid://chrhd021mvgcu" path="res://assets/main menu/Player.svg" id="1_wbfu4"]
+[ext_resource type="Script" uid="uid://jh0dgxewv6h1" path="res://audio_stream_player_2d.gd" id="2_xkndl"]
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_wbfu4"]
+
+[node name="Node2D" type="Node2D" unique_id=1217263802]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1721696922]
+z_index = -999
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.05882353, 0.07450981, 0.05882353, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=588709173]
+texture = ExtResource("1_wbfu4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1350350172]
+stream = SubResource("AudioStreamMicrophone_wbfu4")
+volume_db = -80.0
+autoplay = true
+bus = &"Pitch"
+script = ExtResource("2_xkndl")

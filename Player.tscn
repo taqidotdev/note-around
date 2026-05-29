@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cacy1c5pe41se"]
+
+[ext_resource type="Texture2D" uid="uid://chrhd021mvgcu" path="res://assets/main menu/Player.svg" id="1_xhfnw"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1484026624]
+
+[node name="PlayerSprite" type="Sprite2D" parent="." unique_id=685341058]
+texture = ExtResource("1_xhfnw")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=931122271]
+polygon = PackedVector2Array(-2, -40, 1, -40, 17, -17, 17, 16, 2, 39, -1, 39, -17, 16, -17, -17)

@@ -11,9 +11,20 @@ config_version=5
 [application]
 
 config/name="Note Around"
-run/main_scene="uid://biufjtb6ojiue"
 config/features=PackedStringArray("4.6", "Mobile")
+run/max_fps=240
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://c8p3tfywcd4kc"
+driver/enable_input=true
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
@@ -31,3 +42,4 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
+viewport/hdr_2d=true
