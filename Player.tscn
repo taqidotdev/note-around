@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://cacy1c5pe41se"]
 
+[ext_resource type="Script" uid="uid://bdgcqw46qcjmk" path="res://player.gd" id="1_kne1u"]
 [ext_resource type="Texture2D" uid="uid://chrhd021mvgcu" path="res://assets/main menu/Player.svg" id="1_xhfnw"]
+[ext_resource type="Script" uid="uid://dsnggnmc5iwky" path="res://addons/note_detector/note_detector.gd" id="3_e80uo"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1484026624]
+script = ExtResource("1_kne1u")
 
 [node name="PlayerSprite" type="Sprite2D" parent="." unique_id=685341058]
 texture = ExtResource("1_xhfnw")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=931122271]
 polygon = PackedVector2Array(-2, -40, 1, -40, 17, -17, 17, 16, 2, 39, -1, 39, -17, 16, -17, -17)
+
+[node name="NoteDetector" type="Node" parent="." unique_id=1091852895]
+script = ExtResource("3_e80uo")
+metadata/_custom_type_script = "uid://dsnggnmc5iwky"
