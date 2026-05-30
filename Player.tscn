@@ -15,4 +15,5 @@ polygon = PackedVector2Array(-2, -40, 1, -40, 17, -17, 17, 16, 2, 39, -1, 39, -1
 
 [node name="NoteDetector" type="Node" parent="." unique_id=1091852895]
 script = ExtResource("3_e80uo")
+release = 150.0
 metadata/_custom_type_script = "uid://dsnggnmc5iwky"

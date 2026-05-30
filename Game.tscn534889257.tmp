@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://co16ludyxodcp"]
+
+[ext_resource type="Shader" uid="uid://w6s2u20vnxl2" path="res://Game.gdshader" id="1_sb48q"]
+[ext_resource type="Script" uid="uid://blro0vvkkkhe8" path="res://game.gd" id="1_u44n3"]
+[ext_resource type="PackedScene" uid="uid://cacy1c5pe41se" path="res://Player.tscn" id="1_wbfu4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u44n3"]
+shader = ExtResource("1_sb48q")
+shader_parameter/player_height = 0
+
+[node name="Node2D" type="Node2D" unique_id=1217263802]
+script = ExtResource("1_u44n3")
+
+[node name="Background" type="ColorRect" parent="." unique_id=478796764]
+z_index = -999
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.05882353, 0.07450981, 0.05882353, 1)
+
+[node name="Lines" type="ColorRect" parent="." unique_id=1721696922]
+z_index = -998
+material = SubResource("ShaderMaterial_u44n3")
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Player" parent="." unique_id=1484026624 instance=ExtResource("1_wbfu4")]
+position = Vector2(250, 540)

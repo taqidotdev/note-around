@@ -47,3 +47,10 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg", "res:/
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 viewport/hdr_2d=true
+
+[shader_globals]
+
+player_position={
+"type": "int",
+"value": 10
+}

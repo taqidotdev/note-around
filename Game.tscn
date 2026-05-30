@@ -1,14 +1,226 @@
 [gd_scene format=3 uid="uid://co16ludyxodcp"]
 
+[ext_resource type="Shader" uid="uid://w6s2u20vnxl2" path="res://Game.gdshader" id="1_sb48q"]
+[ext_resource type="Script" uid="uid://blro0vvkkkhe8" path="res://game.gd" id="1_u44n3"]
 [ext_resource type="PackedScene" uid="uid://cacy1c5pe41se" path="res://Player.tscn" id="1_wbfu4"]
+[ext_resource type="FontFile" uid="uid://dksx1tgsf0jqg" path="res://InstrumentSans-Regular.ttf" id="4_sb48q"]
+[ext_resource type="Shader" uid="uid://7fct82s2ygvr" path="res://NoteText.gdshader" id="4_t88pq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u44n3"]
+shader = ExtResource("1_sb48q")
+shader_parameter/base_color = Vector4(0.188, 0.298, 0.176, 0.08)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t88pq"]
+shader = ExtResource("4_t88pq")
+shader_parameter/note_position = 0
+shader_parameter/next_note = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r0x5m"]
+shader = ExtResource("4_t88pq")
+shader_parameter/note_position = 1
+shader_parameter/next_note = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3mrqo"]
+shader = ExtResource("4_t88pq")
+shader_parameter/note_position = 2
+shader_parameter/next_note = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_joorw"]
+shader = ExtResource("4_t88pq")
+shader_parameter/note_position = 3
+shader_parameter/next_note = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2vekm"]
+shader = ExtResource("4_t88pq")
+shader_parameter/note_position = 4
+shader_parameter/next_note = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yx171"]
+shader = ExtResource("4_t88pq")
+shader_parameter/note_position = 5
+shader_parameter/next_note = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yhmtn"]
+shader = ExtResource("4_t88pq")
+shader_parameter/note_position = 6
+shader_parameter/next_note = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gwjdr"]
+shader = ExtResource("4_t88pq")
+shader_parameter/note_position = 7
+shader_parameter/next_note = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lvtmh"]
+shader = ExtResource("4_t88pq")
+shader_parameter/note_position = 8
+shader_parameter/next_note = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yyih5"]
+shader = ExtResource("4_t88pq")
+shader_parameter/note_position = 9
+shader_parameter/next_note = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qjyg3"]
+shader = ExtResource("4_t88pq")
+shader_parameter/note_position = 10
+shader_parameter/next_note = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_elkpi"]
+shader = ExtResource("4_t88pq")
+shader_parameter/note_position = 11
+shader_parameter/next_note = false
 
 [node name="Node2D" type="Node2D" unique_id=1217263802]
+script = ExtResource("1_u44n3")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1721696922]
+[node name="Background" type="ColorRect" parent="." unique_id=478796764]
 z_index = -999
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.05882353, 0.07450981, 0.05882353, 1)
 
+[node name="Lines" type="ColorRect" parent="." unique_id=1721696922]
+z_index = -998
+material = SubResource("ShaderMaterial_u44n3")
+offset_right = 1920.0
+offset_bottom = 1080.0
+
 [node name="Player" parent="." unique_id=1484026624 instance=ExtResource("1_wbfu4")]
 position = Vector2(250, 540)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2140252298]
+offset_left = 20.0
+offset_right = 60.0
+offset_bottom = 1080.0
+
+[node name="C" type="RichTextLabel" parent="VBoxContainer" unique_id=1012228010]
+z_index = -99
+material = SubResource("ShaderMaterial_t88pq")
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/normal_font = ExtResource("4_sb48q")
+theme_override_font_sizes/normal_font_size = 32
+text = "C"
+
+[node name="C#" type="RichTextLabel" parent="VBoxContainer" unique_id=1637451832]
+z_index = -99
+material = SubResource("ShaderMaterial_r0x5m")
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/normal_font = ExtResource("4_sb48q")
+theme_override_font_sizes/normal_font_size = 32
+text = "C#"
+
+[node name="D" type="RichTextLabel" parent="VBoxContainer" unique_id=1039613214]
+z_index = -99
+material = SubResource("ShaderMaterial_3mrqo")
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/normal_font = ExtResource("4_sb48q")
+theme_override_font_sizes/normal_font_size = 32
+text = "D"
+
+[node name="D#" type="RichTextLabel" parent="VBoxContainer" unique_id=1079319962]
+z_index = -99
+material = SubResource("ShaderMaterial_joorw")
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/normal_font = ExtResource("4_sb48q")
+theme_override_font_sizes/normal_font_size = 32
+text = "D#"
+
+[node name="E" type="RichTextLabel" parent="VBoxContainer" unique_id=1522274982]
+z_index = -99
+material = SubResource("ShaderMaterial_2vekm")
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/normal_font = ExtResource("4_sb48q")
+theme_override_font_sizes/normal_font_size = 32
+text = "E"
+
+[node name="F" type="RichTextLabel" parent="VBoxContainer" unique_id=322893963]
+z_index = -99
+material = SubResource("ShaderMaterial_yx171")
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/normal_font = ExtResource("4_sb48q")
+theme_override_font_sizes/normal_font_size = 32
+text = "F"
+
+[node name="F#" type="RichTextLabel" parent="VBoxContainer" unique_id=1294542989]
+z_index = -99
+material = SubResource("ShaderMaterial_yhmtn")
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/normal_font = ExtResource("4_sb48q")
+theme_override_font_sizes/normal_font_size = 32
+text = "F#"
+
+[node name="G" type="RichTextLabel" parent="VBoxContainer" unique_id=1518596603]
+z_index = -99
+material = SubResource("ShaderMaterial_gwjdr")
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/normal_font = ExtResource("4_sb48q")
+theme_override_font_sizes/normal_font_size = 32
+text = "G"
+
+[node name="G#" type="RichTextLabel" parent="VBoxContainer" unique_id=640631724]
+z_index = -99
+material = SubResource("ShaderMaterial_lvtmh")
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/normal_font = ExtResource("4_sb48q")
+theme_override_font_sizes/normal_font_size = 32
+text = "G#"
+
+[node name="A" type="RichTextLabel" parent="VBoxContainer" unique_id=786586288]
+z_index = -99
+material = SubResource("ShaderMaterial_yyih5")
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/normal_font = ExtResource("4_sb48q")
+theme_override_font_sizes/normal_font_size = 32
+text = "A"
+
+[node name="A#" type="RichTextLabel" parent="VBoxContainer" unique_id=698848194]
+z_index = -99
+material = SubResource("ShaderMaterial_qjyg3")
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/normal_font = ExtResource("4_sb48q")
+theme_override_font_sizes/normal_font_size = 32
+text = "A#"
+
+[node name="B" type="RichTextLabel" parent="VBoxContainer" unique_id=328182924]
+z_index = -99
+material = SubResource("ShaderMaterial_elkpi")
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/normal_font = ExtResource("4_sb48q")
+theme_override_font_sizes/normal_font_size = 32
+text = "B"
