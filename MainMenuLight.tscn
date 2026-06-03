@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c5m1o7380lbie" path="res://assets/main menu/MoonHover.svg" id="3_oiaor"]
 [ext_resource type="Texture2D" uid="uid://desfdn0ojwqtb" path="res://assets/main menu/Group 1.png" id="4_3iqgx"]
 [ext_resource type="Texture2D" uid="uid://cmht7tq7trq0i" path="res://assets/main menu/InfoLight.png" id="5_bb5iq"]
+[ext_resource type="Script" uid="uid://cbvplifhaklq0" path="res://v_box_container.gd" id="5_oiaor"]
 [ext_resource type="Texture2D" uid="uid://rdtgpsjc8s4i" path="res://assets/main menu/InfoPress.png" id="6_kumi0"]
 [ext_resource type="Texture2D" uid="uid://elqg7riona4g" path="res://assets/main menu/InfoHover.png" id="7_764i8"]
 [ext_resource type="Texture2D" uid="uid://6bupqrk2bl3q" path="res://assets/main menu/PlayLight.png" id="8_8eddx"]
@@ -51,6 +52,7 @@ texture_hover = ExtResource("3_oiaor")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("5_oiaor")
 
 [node name="Note Around" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=707703595]
 layout_mode = 2
@@ -92,4 +94,5 @@ texture_hover = ExtResource("15_12nr6")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/DarkMode" to="MarginContainer/HBoxContainer" method="_on_night_mode_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Info" to="MarginContainer/InfoModal" method="_on_info_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="MarginContainer/VBoxContainer" method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/InfoModal/Close" to="MarginContainer/InfoModal" method="_on_close_pressed"]

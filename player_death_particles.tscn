@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://if7vysbeglg1"]
+
+[ext_resource type="Script" uid="uid://d0ou4p5e1wq6f" path="res://player_death_particles.gd" id="1_wlwwy"]
+
+[sub_resource type="Gradient" id="Gradient_bi8hw"]
+offsets = PackedFloat32Array(0.4493243, 1)
+colors = PackedColorArray(16.853323, 16.277441, 0.0003942871, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_it3ii"]
+gradient = SubResource("Gradient_bi8hw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bi8hw"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 250.0
+initial_velocity_max = 350.0
+gravity = Vector3(0, 98, 0)
+scale_min = 2.0
+scale_max = 6.0
+color = Color(2.0709076, 1.7334561, 1.7428514e-05, 1)
+color_ramp = SubResource("GradientTexture1D_it3ii")
+
+[node name="GPUParticles2D" type="GPUParticles2D" unique_id=2056370049]
+emitting = false
+amount = 30
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_bi8hw")
+script = ExtResource("1_wlwwy")

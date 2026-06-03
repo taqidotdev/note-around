@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://cacy1c5pe41se" path="res://Player.tscn" id="1_wbfu4"]
 [ext_resource type="FontFile" uid="uid://dksx1tgsf0jqg" path="res://InstrumentSans-Regular.ttf" id="4_sb48q"]
 [ext_resource type="Shader" uid="uid://7fct82s2ygvr" path="res://NoteText.gdshader" id="4_t88pq"]
+[ext_resource type="PackedScene" uid="uid://ykkxa6mu1sl0" path="res://ObstaclesContainer.tscn" id="6_r0x5m"]
+[ext_resource type="Script" uid="uid://0b1fjrup3v22" path="res://death_menu.gd" id="8_joorw"]
+[ext_resource type="FontFile" uid="uid://dinlyrafymhs2" path="res://InstrumentSans-Medium.ttf" id="8_yx171"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u44n3"]
 shader = ExtResource("1_sb48q")
@@ -12,63 +15,110 @@ shader_parameter/base_color = Vector4(0.188, 0.298, 0.176, 0.08)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t88pq"]
 shader = ExtResource("4_t88pq")
-shader_parameter/note_position = 0
+shader_parameter/note_position = 11
 shader_parameter/next_note = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r0x5m"]
 shader = ExtResource("4_t88pq")
-shader_parameter/note_position = 1
+shader_parameter/note_position = 10
 shader_parameter/next_note = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3mrqo"]
 shader = ExtResource("4_t88pq")
-shader_parameter/note_position = 2
+shader_parameter/note_position = 9
 shader_parameter/next_note = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_joorw"]
 shader = ExtResource("4_t88pq")
-shader_parameter/note_position = 3
+shader_parameter/note_position = 8
 shader_parameter/next_note = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2vekm"]
 shader = ExtResource("4_t88pq")
-shader_parameter/note_position = 4
+shader_parameter/note_position = 7
 shader_parameter/next_note = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yx171"]
 shader = ExtResource("4_t88pq")
-shader_parameter/note_position = 5
+shader_parameter/note_position = 6
 shader_parameter/next_note = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yhmtn"]
 shader = ExtResource("4_t88pq")
-shader_parameter/note_position = 6
+shader_parameter/note_position = 5
 shader_parameter/next_note = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gwjdr"]
 shader = ExtResource("4_t88pq")
-shader_parameter/note_position = 7
+shader_parameter/note_position = 4
 shader_parameter/next_note = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lvtmh"]
 shader = ExtResource("4_t88pq")
-shader_parameter/note_position = 8
+shader_parameter/note_position = 3
 shader_parameter/next_note = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yyih5"]
 shader = ExtResource("4_t88pq")
-shader_parameter/note_position = 9
+shader_parameter/note_position = 2
 shader_parameter/next_note = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qjyg3"]
 shader = ExtResource("4_t88pq")
-shader_parameter/note_position = 10
+shader_parameter/note_position = 1
 shader_parameter/next_note = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_elkpi"]
 shader = ExtResource("4_t88pq")
-shader_parameter/note_position = 11
+shader_parameter/note_position = 0
 shader_parameter/next_note = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mrqo"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_joorw"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhmtn"]
+bg_color = Color(0.79607844, 0.21176471, 0.21176471, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2vekm"]
+bg_color = Color(0, 0.5529412, 0.21960784, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwjdr"]
+bg_color = Color(0.79607844, 0.21176471, 0.21176471, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yx171"]
+bg_color = Color(0, 0.5529412, 0.21960784, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="Environment" id="Environment_t88pq"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 2.0
 
 [node name="Node2D" type="Node2D" unique_id=1217263802]
 script = ExtResource("1_u44n3")
@@ -85,15 +135,27 @@ material = SubResource("ShaderMaterial_u44n3")
 offset_right = 1920.0
 offset_bottom = 1080.0
 
+[node name="Line2D" type="Line2D" parent="." unique_id=1561737407]
+position = Vector2(250, 0.119)
+scale = Vector2(0.4, 1.012)
+points = PackedVector2Array(-3, -0.0009259259, -1.25, 1072.0168)
+default_color = Color(0.14321797, 0.14321797, 0.14321797, 1)
+
 [node name="Player" parent="." unique_id=1484026624 instance=ExtResource("1_wbfu4")]
 position = Vector2(250, 540)
 
+[node name="ObstaclesContainer" parent="." unique_id=839893961 node_paths=PackedStringArray("player", "score_label", "added_score_label", "death_menu") instance=ExtResource("6_r0x5m")]
+player = NodePath("../Player")
+score_label = NodePath("../Score")
+added_score_label = NodePath("../AddedScore")
+death_menu = NodePath("../DeathMenu")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2140252298]
 offset_left = 20.0
-offset_right = 60.0
+offset_right = 120.0
 offset_bottom = 1080.0
 
-[node name="C" type="RichTextLabel" parent="VBoxContainer" unique_id=1012228010]
+[node name="B" type="RichTextLabel" parent="VBoxContainer" unique_id=1012228010]
 z_index = -99
 material = SubResource("ShaderMaterial_t88pq")
 custom_minimum_size = Vector2(100, 40)
@@ -102,9 +164,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_fonts/normal_font = ExtResource("4_sb48q")
 theme_override_font_sizes/normal_font_size = 32
-text = "C"
+text = "B"
 
-[node name="C#" type="RichTextLabel" parent="VBoxContainer" unique_id=1637451832]
+[node name="A#" type="RichTextLabel" parent="VBoxContainer" unique_id=1637451832]
 z_index = -99
 material = SubResource("ShaderMaterial_r0x5m")
 custom_minimum_size = Vector2(100, 40)
@@ -113,9 +175,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_fonts/normal_font = ExtResource("4_sb48q")
 theme_override_font_sizes/normal_font_size = 32
-text = "C#"
+text = "A#"
 
-[node name="D" type="RichTextLabel" parent="VBoxContainer" unique_id=1039613214]
+[node name="A" type="RichTextLabel" parent="VBoxContainer" unique_id=1039613214]
 z_index = -99
 material = SubResource("ShaderMaterial_3mrqo")
 custom_minimum_size = Vector2(100, 40)
@@ -124,9 +186,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_fonts/normal_font = ExtResource("4_sb48q")
 theme_override_font_sizes/normal_font_size = 32
-text = "D"
+text = "A"
 
-[node name="D#" type="RichTextLabel" parent="VBoxContainer" unique_id=1079319962]
+[node name="G#" type="RichTextLabel" parent="VBoxContainer" unique_id=1079319962]
 z_index = -99
 material = SubResource("ShaderMaterial_joorw")
 custom_minimum_size = Vector2(100, 40)
@@ -135,9 +197,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_fonts/normal_font = ExtResource("4_sb48q")
 theme_override_font_sizes/normal_font_size = 32
-text = "D#"
+text = "G#"
 
-[node name="E" type="RichTextLabel" parent="VBoxContainer" unique_id=1522274982]
+[node name="G" type="RichTextLabel" parent="VBoxContainer" unique_id=1522274982]
 z_index = -99
 material = SubResource("ShaderMaterial_2vekm")
 custom_minimum_size = Vector2(100, 40)
@@ -146,9 +208,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_fonts/normal_font = ExtResource("4_sb48q")
 theme_override_font_sizes/normal_font_size = 32
-text = "E"
+text = "G"
 
-[node name="F" type="RichTextLabel" parent="VBoxContainer" unique_id=322893963]
+[node name="F#" type="RichTextLabel" parent="VBoxContainer" unique_id=322893963]
 z_index = -99
 material = SubResource("ShaderMaterial_yx171")
 custom_minimum_size = Vector2(100, 40)
@@ -157,9 +219,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_fonts/normal_font = ExtResource("4_sb48q")
 theme_override_font_sizes/normal_font_size = 32
-text = "F"
+text = "F#"
 
-[node name="F#" type="RichTextLabel" parent="VBoxContainer" unique_id=1294542989]
+[node name="F" type="RichTextLabel" parent="VBoxContainer" unique_id=1294542989]
 z_index = -99
 material = SubResource("ShaderMaterial_yhmtn")
 custom_minimum_size = Vector2(100, 40)
@@ -168,9 +230,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_fonts/normal_font = ExtResource("4_sb48q")
 theme_override_font_sizes/normal_font_size = 32
-text = "F#"
+text = "F"
 
-[node name="G" type="RichTextLabel" parent="VBoxContainer" unique_id=1518596603]
+[node name="E" type="RichTextLabel" parent="VBoxContainer" unique_id=1518596603]
 z_index = -99
 material = SubResource("ShaderMaterial_gwjdr")
 custom_minimum_size = Vector2(100, 40)
@@ -179,9 +241,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_fonts/normal_font = ExtResource("4_sb48q")
 theme_override_font_sizes/normal_font_size = 32
-text = "G"
+text = "E"
 
-[node name="G#" type="RichTextLabel" parent="VBoxContainer" unique_id=640631724]
+[node name="D#" type="RichTextLabel" parent="VBoxContainer" unique_id=640631724]
 z_index = -99
 material = SubResource("ShaderMaterial_lvtmh")
 custom_minimum_size = Vector2(100, 40)
@@ -190,9 +252,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_fonts/normal_font = ExtResource("4_sb48q")
 theme_override_font_sizes/normal_font_size = 32
-text = "G#"
+text = "D#"
 
-[node name="A" type="RichTextLabel" parent="VBoxContainer" unique_id=786586288]
+[node name="D" type="RichTextLabel" parent="VBoxContainer" unique_id=786586288]
 z_index = -99
 material = SubResource("ShaderMaterial_yyih5")
 custom_minimum_size = Vector2(100, 40)
@@ -201,9 +263,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_fonts/normal_font = ExtResource("4_sb48q")
 theme_override_font_sizes/normal_font_size = 32
-text = "A"
+text = "D"
 
-[node name="A#" type="RichTextLabel" parent="VBoxContainer" unique_id=698848194]
+[node name="C#" type="RichTextLabel" parent="VBoxContainer" unique_id=698848194]
 z_index = -99
 material = SubResource("ShaderMaterial_qjyg3")
 custom_minimum_size = Vector2(100, 40)
@@ -212,9 +274,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_fonts/normal_font = ExtResource("4_sb48q")
 theme_override_font_sizes/normal_font_size = 32
-text = "A#"
+text = "C#"
 
-[node name="B" type="RichTextLabel" parent="VBoxContainer" unique_id=328182924]
+[node name="C" type="RichTextLabel" parent="VBoxContainer" unique_id=328182924]
 z_index = -99
 material = SubResource("ShaderMaterial_elkpi")
 custom_minimum_size = Vector2(100, 40)
@@ -223,4 +285,98 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_fonts/normal_font = ExtResource("4_sb48q")
 theme_override_font_sizes/normal_font_size = 32
-text = "B"
+text = "C"
+
+[node name="Score" type="RichTextLabel" parent="." unique_id=285839567]
+offset_top = 52.0
+offset_right = 1920.0
+offset_bottom = 139.99982
+theme_override_colors/default_color = Color(0.179, 1.694, 0.426, 1)
+theme_override_fonts/normal_font = ExtResource("4_sb48q")
+theme_override_font_sizes/normal_font_size = 60
+text = "0"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AddedScore" type="RichTextLabel" parent="." unique_id=671699522]
+offset_top = 24.0
+offset_right = 1920.0
+offset_bottom = 82.0
+theme_override_colors/default_color = Color(0.19672257, 1.8247963, 0.46224532, 1)
+theme_override_fonts/normal_font = ExtResource("4_sb48q")
+theme_override_font_sizes/normal_font_size = 20
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DeathMenu" type="Panel" parent="." unique_id=1976122956]
+visible = false
+offset_left = 510.0
+offset_top = 257.5
+offset_right = 1410.0
+offset_bottom = 822.5
+theme_override_styles/panel = SubResource("StyleBoxFlat_3mrqo")
+script = ExtResource("8_joorw")
+
+[node name="Score" type="RichTextLabel" parent="DeathMenu" unique_id=1253150487]
+layout_mode = 0
+offset_top = 52.0
+offset_right = 900.0
+offset_bottom = 126.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("8_yx171")
+theme_override_font_sizes/normal_font_size = 60
+text = "Score:"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="YouDied" type="RichTextLabel" parent="DeathMenu" unique_id=589603534]
+layout_mode = 0
+offset_right = 900.0
+offset_bottom = 400.0
+theme_override_colors/default_color = Color(0.79607844, 0.21176471, 0.21176471, 1)
+theme_override_fonts/normal_font = ExtResource("8_yx171")
+theme_override_font_sizes/normal_font_size = 80
+text = "You Died!"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayAgain" type="Button" parent="DeathMenu" unique_id=135722563]
+layout_mode = 0
+offset_left = 315.0
+offset_top = 308.0
+offset_right = 585.0
+offset_bottom = 368.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_sb48q")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_joorw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yhmtn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2vekm")
+text = "Play Again"
+
+[node name="MainMenu" type="Button" parent="DeathMenu" unique_id=242180523]
+layout_mode = 0
+offset_left = 315.0
+offset_top = 380.0
+offset_right = 585.0
+offset_bottom = 440.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_sb48q")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_joorw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gwjdr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yx171")
+text = "Main Menu"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=83091311]
+environment = SubResource("Environment_t88pq")
+
+[connection signal="pressed" from="DeathMenu/PlayAgain" to="DeathMenu" method="_on_play_again_pressed"]
+[connection signal="pressed" from="DeathMenu/MainMenu" to="DeathMenu" method="_on_main_menu_pressed"]

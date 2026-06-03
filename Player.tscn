@@ -1,19 +1,31 @@
 [gd_scene format=3 uid="uid://cacy1c5pe41se"]
 
 [ext_resource type="Script" uid="uid://bdgcqw46qcjmk" path="res://player.gd" id="1_kne1u"]
-[ext_resource type="Texture2D" uid="uid://chrhd021mvgcu" path="res://assets/main menu/Player.svg" id="1_xhfnw"]
 [ext_resource type="Script" uid="uid://dsnggnmc5iwky" path="res://addons/note_detector/note_detector.gd" id="3_e80uo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kpjcp"]
+bg_color = Color(0, 1.694, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kpjcp"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1484026624]
 script = ExtResource("1_kne1u")
-
-[node name="PlayerSprite" type="Sprite2D" parent="." unique_id=685341058]
-texture = ExtResource("1_xhfnw")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=931122271]
-polygon = PackedVector2Array(-2, -40, 1, -40, 17, -17, 17, 16, 2, 39, -1, 39, -17, 16, -17, -17)
 
 [node name="NoteDetector" type="Node" parent="." unique_id=1091852895]
 script = ExtResource("3_e80uo")
 release = 150.0
 metadata/_custom_type_script = "uid://dsnggnmc5iwky"
+
+[node name="PlayerBackground" type="Panel" parent="." unique_id=244749891]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kpjcp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=447441446]
+shape = SubResource("CircleShape2D_kpjcp")

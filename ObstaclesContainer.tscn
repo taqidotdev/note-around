@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ykkxa6mu1sl0"]
+
+[ext_resource type="Script" uid="uid://b3nosqiqbslfr" path="res://obstacles_container.gd" id="1_wi7t8"]
+[ext_resource type="PackedScene" uid="uid://if7vysbeglg1" path="res://player_death_particles.tscn" id="2_2qpuh"]
+
+[node name="ObstaclesContainer" type="Node2D" unique_id=839893961]
+script = ExtResource("1_wi7t8")
+player_death_particles = ExtResource("2_2qpuh")

@@ -5,7 +5,6 @@ extends Node2D
 @onready var text = get_node("VBoxContainer/C");
 
 func _process(delta: float) -> void:
-	
-	var player_position = roundi(player.note_index)
-
-	RenderingServer.global_shader_parameter_set("player_position", player_position)
+	if player:
+		var player_position = roundi(player.note_index)
+		RenderingServer.global_shader_parameter_set("player_position", player_position)

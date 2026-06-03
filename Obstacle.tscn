@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c1t76nsth7uoq"]
+
+[ext_resource type="Script" uid="uid://cldvcrjvokrnl" path="res://obstacle.gd" id="1_nfn2k"]
+
+[node name="Obstacle" type="Area2D" unique_id=1515713232]
+script = ExtResource("1_nfn2k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
