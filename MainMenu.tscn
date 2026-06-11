@@ -1,22 +1,33 @@
 [gd_scene format=3 uid="uid://ds82y0yx4sn0a"]
 
-[ext_resource type="Script" uid="uid://eu0tm4i1pmgy" path="res://h_box_container.gd" id="1_qie43"]
-[ext_resource type="Texture2D" uid="uid://brvjnt245x5d6" path="res://assets/main menu/Sun.svg" id="2_3fnrj"]
 [ext_resource type="Texture2D" uid="uid://desfdn0ojwqtb" path="res://assets/main menu/Group 1.png" id="2_eiy7p"]
-[ext_resource type="Texture2D" uid="uid://dp3vup62ves23" path="res://assets/main menu/Info.png" id="3_cqjrg"]
-[ext_resource type="Texture2D" uid="uid://c7of6qiihm22u" path="res://assets/main menu/SunPress.svg" id="3_m04lp"]
-[ext_resource type="Texture2D" uid="uid://peyaxtl76o73" path="res://assets/main menu/SunHover.svg" id="4_1thib"]
-[ext_resource type="Texture2D" uid="uid://elqg7riona4g" path="res://assets/main menu/InfoHover.png" id="4_e2xy7"]
-[ext_resource type="Texture2D" uid="uid://rdtgpsjc8s4i" path="res://assets/main menu/InfoPress.png" id="4_fimr5"]
 [ext_resource type="Texture2D" uid="uid://v2vv74t68drq" path="res://assets/main menu/InfoModal.svg" id="4_iwfq2"]
 [ext_resource type="Texture2D" uid="uid://d1ndovayh2if3" path="res://assets/main menu/CrossPress.svg" id="5_7r1g0"]
 [ext_resource type="Texture2D" uid="uid://deywt7bmhb0hq" path="res://assets/main menu/CrossHover.svg" id="5_iwfq2"]
 [ext_resource type="Script" uid="uid://cbvplifhaklq0" path="res://v_box_container.gd" id="5_m04lp"]
 [ext_resource type="Texture2D" uid="uid://r6x0ajaja2qm" path="res://assets/main menu/Cross.svg" id="6_7r1g0"]
-[ext_resource type="Texture2D" uid="uid://bno81uq8ocl53" path="res://assets/main menu/Play.png" id="6_31qfy"]
-[ext_resource type="Texture2D" uid="uid://b0ecfma33b2ay" path="res://assets/main menu/PlayPress.png" id="7_qie43"]
-[ext_resource type="Texture2D" uid="uid://brrl8iwuevp5p" path="res://assets/main menu/PlayHover.png" id="8_61cf8"]
 [ext_resource type="Script" uid="uid://dwest1dsr73m3" path="res://info_modal.gd" id="11_61cf8"]
+[ext_resource type="StyleBox" uid="uid://ctkwlsvvat3ff" path="res://normal_button_light.tres" id="15_dl1jy"]
+[ext_resource type="FontFile" uid="uid://eas130pjwhhs" path="res://assets/InstrumentSans-Regular.ttf" id="18_dl1jy"]
+[ext_resource type="Script" uid="uid://3bnvb74hs613" path="res://play_container.gd" id="18_ig1gi"]
+[ext_resource type="FontFile" uid="uid://dinlyrafymhs2" path="res://InstrumentSans-Medium.ttf" id="18_y4010"]
+[ext_resource type="StyleBox" uid="uid://c8ke1y2d1l3tc" path="res://pressed_button.tres" id="19_dl1jy"]
+[ext_resource type="StyleBox" uid="uid://dabcrkqaep2ec" path="res://hover_button.tres" id="20_y4010"]
+[ext_resource type="FontFile" uid="uid://dksx1tgsf0jqg" path="res://InstrumentSans-Regular.ttf" id="23_2gjqv"]
+[ext_resource type="Script" uid="uid://daa4fdpbhasl7" path="res://play_button.gd" id="25_f3wmj"]
+[ext_resource type="AudioStream" uid="uid://cqf72fcbtxyf4" path="res://assets/music/Can't Help Falling In Love.mp3" id="27_t8cnk"]
+[ext_resource type="JSON" path="res://assets/music/FallingInLove.json" id="28_e2bvh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4010"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2gjqv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ig1gi"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_y4010"]
 
 [node name="Node2D" type="Node2D" unique_id=614830133]
 
@@ -36,23 +47,11 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 30
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=645140003]
-layout_mode = 2
-script = ExtResource("1_qie43")
-
-[node name="LightMode" type="TextureButton" parent="MarginContainer/HBoxContainer" unique_id=1415749515]
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 0
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("2_3fnrj")
-texture_pressed = ExtResource("3_m04lp")
-texture_hover = ExtResource("4_1thib")
-
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=606977450]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 10
 script = ExtResource("5_m04lp")
 
 [node name="Note Around" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=707703595]
@@ -60,19 +59,32 @@ layout_mode = 2
 texture = ExtResource("2_eiy7p")
 stretch_mode = 4
 
-[node name="Info" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=1975266803]
+[node name="Info" type="Button" parent="MarginContainer/VBoxContainer" unique_id=907400423]
+custom_minimum_size = Vector2(270, 60)
 layout_mode = 2
 size_flags_horizontal = 4
-texture_normal = ExtResource("3_cqjrg")
-texture_pressed = ExtResource("4_fimr5")
-texture_hover = ExtResource("4_e2xy7")
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_2gjqv")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("15_dl1jy")
+theme_override_styles/pressed = ExtResource("19_dl1jy")
+theme_override_styles/hover = ExtResource("20_y4010")
+text = "Info"
 
-[node name="Play" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=613077845]
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1655258914]
+custom_minimum_size = Vector2(270, 60)
 layout_mode = 2
 size_flags_horizontal = 4
-texture_normal = ExtResource("6_31qfy")
-texture_pressed = ExtResource("7_qie43")
-texture_hover = ExtResource("8_61cf8")
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("23_2gjqv")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("15_dl1jy")
+theme_override_styles/pressed = ExtResource("19_dl1jy")
+theme_override_styles/hover = ExtResource("20_y4010")
+text = "Play
+"
 
 [node name="InfoModal" type="TextureRect" parent="MarginContainer" unique_id=83219887]
 visible = false
@@ -93,7 +105,115 @@ texture_normal = ExtResource("6_7r1g0")
 texture_pressed = ExtResource("5_7r1g0")
 texture_hover = ExtResource("5_iwfq2")
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/LightMode" to="MarginContainer/HBoxContainer" method="_on_night_mode_pressed"]
+[node name="PlayContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1874360295]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+script = ExtResource("18_ig1gi")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PlayContainer" unique_id=990053350]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="MarginContainer/PlayContainer/HBoxContainer" unique_id=299709458]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("18_y4010")
+theme_override_styles/normal = SubResource("StyleBoxFlat_y4010")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2gjqv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ig1gi")
+text = "<- Back"
+
+[node name="Difficulty" type="HBoxContainer" parent="MarginContainer/PlayContainer" unique_id=530330607]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Easy" type="Button" parent="MarginContainer/PlayContainer/Difficulty" unique_id=1687495360]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_dl1jy")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("15_dl1jy")
+theme_override_styles/pressed = ExtResource("19_dl1jy")
+theme_override_styles/hover = ExtResource("20_y4010")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_y4010")
+text = "Easy"
+
+[node name="Normal" type="Button" parent="MarginContainer/PlayContainer/Difficulty" unique_id=413941735]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_dl1jy")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("15_dl1jy")
+theme_override_styles/pressed = ExtResource("19_dl1jy")
+theme_override_styles/hover = ExtResource("20_y4010")
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_y4010")
+text = "Normal"
+
+[node name="Hard" type="Button" parent="MarginContainer/PlayContainer/Difficulty" unique_id=1290246413]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_dl1jy")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("15_dl1jy")
+theme_override_styles/pressed = ExtResource("19_dl1jy")
+theme_override_styles/hover = ExtResource("20_y4010")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_y4010")
+text = "Hard"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PlayContainer" unique_id=1398014964]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/PlayContainer/VBoxContainer" unique_id=85352635]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("23_2gjqv")
+theme_override_font_sizes/normal_font_size = 40
+text = "Songs:"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PlayContainer/VBoxContainer" unique_id=1380462066]
+layout_mode = 2
+
+[node name="FallingInLove" type="Button" parent="MarginContainer/PlayContainer/VBoxContainer/HBoxContainer2" unique_id=919160523]
+custom_minimum_size = Vector2(310, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18_dl1jy")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("15_dl1jy")
+theme_override_styles/pressed = ExtResource("19_dl1jy")
+theme_override_styles/hover = ExtResource("20_y4010")
+text = "Can't Help Falling In Love"
+script = ExtResource("25_f3wmj")
+music = ExtResource("27_t8cnk")
+obstacles = ExtResource("28_e2bvh")
+level_name = "falling_in_love"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Info" to="MarginContainer/InfoModal" method="_on_info_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="MarginContainer/VBoxContainer" method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/InfoModal/Close" to="MarginContainer/InfoModal" method="_on_close_pressed"]
+[connection signal="pressed" from="MarginContainer/PlayContainer/HBoxContainer/Back" to="MarginContainer/VBoxContainer" method="_on_back_pressed"]
+[connection signal="toggled" from="MarginContainer/PlayContainer/Difficulty/Easy" to="MarginContainer/PlayContainer" method="_on_easy_toggled"]
+[connection signal="toggled" from="MarginContainer/PlayContainer/Difficulty/Normal" to="MarginContainer/PlayContainer" method="_on_normal_toggled"]
+[connection signal="toggled" from="MarginContainer/PlayContainer/Difficulty/Hard" to="MarginContainer/PlayContainer" method="_on_hard_toggled"]
+[connection signal="pressed" from="MarginContainer/PlayContainer/VBoxContainer/HBoxContainer2/FallingInLove" to="MarginContainer/PlayContainer/VBoxContainer/HBoxContainer2/FallingInLove" method="_on_pressed"]

@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Note Around"
+run/main_scene="uid://ds82y0yx4sn0a"
 config/features=PackedStringArray("4.6", "Mobile")
 run/max_fps=240
 config/icon="res://icon.svg"

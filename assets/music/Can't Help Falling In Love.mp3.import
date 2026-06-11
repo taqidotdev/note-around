@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cqf72fcbtxyf4"
+path="res://.godot/imported/Can't Help Falling In Love.mp3-a0bf4ab042209644852d363cb34d540f.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Can't Help Falling In Love.mp3"
+dest_files=["res://.godot/imported/Can't Help Falling In Love.mp3-a0bf4ab042209644852d363cb34d540f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -2,12 +2,14 @@ extends Area2D
 class_name Obstacle
 
 @export var notes: Array[int] = [];
+@export var difficulty_multiplier: float
 
 var holes: Array[Array] = []
 
 func _ready() -> void:
 	for note in notes:
-		holes.push_back([int((float(11 - note)) / 12 * 1080), int((float(11 - note + 1)) / 12 * 1080)])
+		#holes.push_back([int((float(11 - note)) / 12 * 1080), int((float(11 - note + 1)) / 12 * 1080)])
+		holes.push_back([int((float(11 - note - (1.5 / difficulty_multiplier) + 1)) / 12 * 1080), int((float(11 - note + 1 + (1.5 / difficulty_multiplier) - 1)) / 12 * 1080)])
 	
 	var previous_hole_end = -1;
 	var hole_index = 0

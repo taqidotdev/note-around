@@ -8,14 +8,13 @@ var previous_note: int = 0;
 var target: int;
 var lives = 3
 
-@export var smoothing = 12;
+@export var smoothing = 20;
 
 func _process(delta: float) -> void:
 	note_index = ((note_detector._sustained_note_index) % 12) + (floor(note_detector.cents_offset) / 100)
 	
 	if (note_index > 0):
 		target = ((float(11 - note_index) + 0.5) / 12 * 1080)
-	
 	
 	if (note_detector._sustained_note_index > previous_note && note_index < previous_note % 12): # check for upper octave
 		global_position.y = 1200
